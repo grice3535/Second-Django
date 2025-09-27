@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Cars</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Latest Cars</h1>
+    </div>
+
+    <div class="container">
+        {% if car %}
+            {% for i in car %}
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">VIN: {{ i.vin }}</li>
+                    <li class="list-group-item">Make: {{ i.make }}</li>
+                    <li class="list-group-item">Model: {{ i.model }}</li>
+                    <li class="list-group-item">Type: {{ i.type }}</li>
+                    <li class="list-group-item">Color: {{ i.color }}</li>
+                </ul>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="card-title">{{ i.brand }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ i.model }}</p>
+                        <p class="text-muted">Year: {{ i.year }}</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Fuel Type: {{ i.fuel_type }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No cars found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
