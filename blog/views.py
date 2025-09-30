@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from .forms import PostForm
 
 # Create your views here.
 def index(request):
@@ -14,3 +15,9 @@ def why(request):
 def show_post(request):
     post = Post.objects.all()
     return render(request, "post_list.html", {"post": post})
+
+def add_post(request):
+    blogform = PostForm()
+    if request.method == "POST": # if the submit button has been clicked
+        if blogform.is_valid():
+            blogform.save()
