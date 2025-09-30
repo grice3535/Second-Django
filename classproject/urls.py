@@ -26,5 +26,6 @@ urlpatterns = [
     path('post_list/', blog_views.show_post, name="post"),
     path('car_list/', car_views.car_list, name="car"),
     path('new_post/', blog_views.add_post, name="addposts"),
+    path('post_lists/', blog_views.post_list, name="posts"),
 ]
 

@@ -1,40 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <title>Cars</title>
+    <title>Document</title>
 </head>
-
 <body>
-    <div class = "jumbotron text-center">
-        <h1 class = "display-4">Latest Posts</h1>
-    </div>
-    <div class="container">
-    {% if post %}
-        {% for i in post %}
-        <div class="card">
-        <div>
-            <div class="card-header bg-info text-white">
-                <h5 class="card-title">{{i.title}}</h5>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{i.body}}</p>
-                <br>
-                <p class="text-muted">By {{i.auther}}</p>
-            </div>
-            <div class="card-footer text-muted">
-                {{i.created_at}}
-            </div>
-            <br>
-        {% endfor %}
-    {% else %}
-    <h3>No posts yet</h3>
-    {% endif %}
-    </div>
+    {{ posts }}  
 </body>
-
 </html>
