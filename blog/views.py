@@ -27,5 +27,5 @@ def add_post(request):
     return render(request, "post_form.html", {"blogform": blogform})
  
 def post_list(request):
-    posts = Post.objects.filter(created_at=timezone.now()).order_by('published_date')
-    return render(request, 'post_list.html', {'posts': posts})
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
