@@ -13,10 +13,13 @@
     <div class = "jumbotron text-center">
         <h1 class = "display-4">Create New Post</h1>
     </div>
-    <form method = 'POST'>
-        {{ blogform }}
-        <input type = submit>
-    </form>
+    <div class="containter">
+        <form method = 'POST'>
+            {% csrf_token %}
+            {{ blogform }}
+            <input type = submit>
+        </form>
+    </div>
 </body>
 
 </html>

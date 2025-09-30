@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
 from .forms import PostForm
 
@@ -19,5 +19,8 @@ def show_post(request):
 def add_post(request):
     blogform = PostForm()
     if request.method == "POST": # if the submit button has been clicked
+        blogform = PostForm(request.POST)
         if blogform.is_valid():
             blogform.save()
+            return redirect("post")
+    return render(request, "post_form.html", {"blogform": blogform})
